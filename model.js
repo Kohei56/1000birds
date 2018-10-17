@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 // スキーマ
 const nemdbSchema = new Schema({
+  date: String,
   xem: Number,
+  lat: Number,
+  lng: Number,
   message: String
 }, {
   collection: 'nemcol'

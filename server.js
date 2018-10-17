@@ -27,4 +27,4 @@ router.get('/api', (req, res) => {
 
 app.use('/', router);
 app.listen(port);
-console.log('listen on port ' + port);
+console.log(`Server is started on port ${port}`);
