@@ -22,7 +22,7 @@ confirmedTransactionListener.subscribe(res => {
   const xem = res._xem.quantity / 1000000;
 
   //　lat, lng, message
-  const payload = new Buffer(res.message.payload, 'hex').toString('utf8');
+  const payload = new Buffer.from(res.message.payload, 'hex').toString('utf8');
   const latlng = payload.match(/#(\d{2,3}\.\d{6}),(\d{2,3}\.\d{6})/);
   if(latlng == null){
     var lat = 0;
