@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>fullPage.js A simple Demo</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+
+<style>
+.section{
+  text-align:center;
+}
+body{
+  padding-top:4rem;
+  background-color: #F2F2F2;
+}
+#map {
+  width: 100%;
+  height: 70vh;
+}
+#map_wrapper{
+  height: 100vh;
+}
+.card{
+  height:27vh;
+  margin:10px;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">デジタル千羽鶴</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li data-menuanchor="firstPage" class="nav-item active">
+        <a class="nav-link" href="#firstPage">Map</a>
+      </li>
+      <li data-menuanchor="secondPage" class="nav-item">
+        <a class="nav-link" href="#secondPage">これは何？</a>
+      </li>
+      <li data-menuanchor="3rdPage"　class="nav-item">
+        <a class="nav-link" href="#3rdPage">どうやって使うの？</a>
+      </li>
+      <li data-menuanchor="4thpage"class="nav-item">
+        <a class="nav-link" href="#4thpage">Link</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="map_wrapper">
+  <div id="map"></div>
+  <div class="card">
+    <div class="card-body">
+      ログ
+      <p>10XEM　場所：東京都町田市付近</p>
+    </div>
+  </div>
+</div>
+
+<div id="fullpage">
+  <div class="section active" id="section0"><h1>fullPage.js</h1></div>
+  <div class="section" id="section1"><h1>Sample Text</h1></div>
+  <div class="section" id="section2"><h1>No wraps, no extra markup</h1></div>
+  <div class="section" id="section3"><h1>Just the simplest demo ever</h1></div>
+</div>
+
+<script type="text/javascript" src="js/fullpage.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var myFullpage = new fullpage('#fullpage', {
+    sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+    anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+    menu: '#navbar',
+    navigation: true,
+    navigationPosition: 'right',
+    navigationTooltips: ['コンテンツ1', 'コンテンツ2', 'コンテンツ3', 'コンテンツ4', 'コンテンツ5'],
+    verticalCentered: true,
+    loopBottom: true,
+    licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
+  });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/markerclusterer.js" type="text/javascript"></script>
+<script src="js/markerclustererBackgroundSize.js" type="text/javascript"></script>
+<script type="text/javascript" src="mapscript.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0uXte8Ny9W1ADSERF4d5cXsh3nkxC38I&callback=initMap"></script>
+</body>
+</html>
