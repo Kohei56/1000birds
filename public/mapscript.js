@@ -6,9 +6,9 @@ var currentInfoWindow = null;
 
 function initMap() {
   //地図の作成
-  var initLatlng = new google.maps.LatLng(35.170981, 136.881556);
+  var initLatlng = new google.maps.LatLng(39.570981, 136.881556);
   var mapOptions = {
-      zoom: 10,
+      zoom: 5,
       center: initLatlng,
       mapTypeControl: false, //マップタイプ コントロール
       fullscreenControl: false, //全画面表示コントロール
@@ -63,26 +63,26 @@ function initMap() {
 
 function createMarker(date, xem, lat, lng, message) {  
   var newMarker = new google.maps.Marker({
-      position: new google.maps.LatLng(lat, lng),
-      icon: {
-        url:'img/turu.png',
-        scaledSize: new google.maps.Size(60, 60)},
-      map: map,
-      message: message
+    position: new google.maps.LatLng(lat, lng),
+    icon: {
+      url:'img/turu.png',
+      scaledSize: new google.maps.Size(60, 60)},
+    map: map,
+    message: message
   });
 
   var markerWindow = new google.maps.InfoWindow({
-          content: `<p>${date} ${xem}XEM</p><p>${message}</p>`
-      });
+    content: `<div class="markerWindow"><p>日付：${date}</p><p>XEM：${xem}</p><p>メッセージ：${message}</p></div>`
+  });
 
 //  google.maps.event.addListener(newmarker, 'click', function() {
   newMarker.addListener('click', function() {
-      if (currentInfoWindow) {
-        currentInfoWindow.close();
-      }
+    if (currentInfoWindow) {
+      currentInfoWindow.close();
+    }
 
-      markerWindow.open(map, newMarker);
-      currentInfoWindow = markerWindow;
+    markerWindow.open(map, newMarker);
+    currentInfoWindow = markerWindow;
   });
 
   markers.push(newMarker);
@@ -119,11 +119,15 @@ function openLocWindow(latlng, map) {
     currentInfoWindow.close();
   }
 
+  lat = latlng.lat().toFixed(6);
+  lng = latlng.lng().toFixed(6);
+  tag = `#${lat},${lng}`;
+
   geocodeLatLng(latlng, function(address) {
     var nemAddress = 'TDSPP6QU3TMGI7AMSPPCBJQ7TU37ABGMLTH73CEH';
     var locWindow = new google.maps.InfoWindow({
       position: latlng,
-      content: `ココに鶴を送る！<p>${address}</p><button onclick="cpToClipborad('${nemAddress}')">送信先アドレスをコピー</button>`
+      content: `<span class="font-weight-bold">ココに鶴を送る！</span><p>場所：${address}</p><button onclick="cpToClipborad('${tag}')">座標タグをコピー</button><span class="ml-3"></span><button onclick="cpToClipborad('${nemAddress}')">送信先アドレスをコピー</button>`
     });
     locWindow.open(map);
     currentInfoWindow = locWindow;
@@ -161,7 +165,6 @@ function createCluster(map, markers){
       maxZoom: 15
   };
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
-
 }
 
 

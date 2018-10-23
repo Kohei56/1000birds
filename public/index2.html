@@ -8,12 +8,19 @@
   <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
 
 <style>
-.section{
-  text-align:center;
+html {
+  font-size: 62.5%;
 }
 body{
+  font-size: 1.4em;
   padding-top:4rem;
   background-color: #F2F2F2;
+}
+.navbar-brand{
+  font-size: 1.4em;
+}
+.section{
+  text-align:center;
 }
 #map {
   width: 100%;
@@ -26,12 +33,26 @@ body{
   height:27vh;
   margin:10px;
 }
+div.card-body p{
+  margin-bottom: 0.2em;
+}
+div.markerWindow p{
+  margin-bottom: 0em;
+}
+span.font-weight-bold.title{
+  margin-top:0.2em;
+  font-size: 1.4em;
+}
+
+img {
+
+}
 </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">デジタル千羽鶴</a>
+  <a class="navbar-brand" href="#">デジタル千羽鶴　powered by NEM.</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -56,10 +77,17 @@ body{
 
 <div id="map_wrapper">
   <div id="map"></div>
-  <div class="card">
-    <div class="card-body">
-      ログ
-      <p>10XEM　場所：東京都町田市付近</p>
+  <div class="d-flex">
+    <div class="card mx-auto">
+      <div class="card-body">
+        <span class="font-weight-bold title">これはなに？</span>
+        <p>NEMのブロックチェーンに位置情報を記録することで、日本列島に鶴をマッピングできるサービスです。</p>
+        <p>集まったXEMは、<a href="https://donation.yahoo.co.jp/detail/1630037/">北海道胆振東部地震の支援金（Yahoo!基金）</a>に全額寄付いたします。</p>
+        <span class="font-weight-bold title">使い方</span>
+        <p>下記のアドレスへの <span class="font-weight-bold">XEMの送金が承認されると</span>、地図上に鶴が表示されます。</p>
+        <p>地図をクリックして座標タグをコピーして、XEMの送金時にメッセージとして記入してください。また<span class="font-weight-bold">暗号化せず</span>送信してください。</p>
+        <p>アドレス：<span class="font-weight-bold">TDSPP6QU3TMGI7AMSPPCBJQ7TU37ABGMLTH73CEH</span> (<a href="#" onclick="cpToClipborad('TDSPP6QU3TMGI7AMSPPCBJQ7TU37ABGMLTH73CEH')">クリックでコピー</a>)</p>
+      </div>
     </div>
   </div>
 </div>
